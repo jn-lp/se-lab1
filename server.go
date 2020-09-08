@@ -6,10 +6,12 @@ import (
 	"time"
 )
 
+// Response format
 type indexRes struct {
 	Time string `json:"time"`
 }
 
+// Handler for '/' URI
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	res := indexRes{time.Now().Format(time.RFC3339)}
 
