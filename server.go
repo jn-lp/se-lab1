@@ -13,19 +13,19 @@ type indexRes struct {
 
 // Handler for '/' URI
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-// Filling response
+	// Filling response
 	res := indexRes{time.Now().Format(time.RFC3339)}
-// Serializing response
+	// Serializing response
 	jsonRes, err := json.Marshal(res)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-// Setting headers
+	// Setting headers
 	w.Header().Set("Content-Type", "application/json")
-// Writing headers
+	// Writing headers
 	w.WriteHeader(http.StatusAccepted)
-// Writing responce
+	// Writing responce
 	w.Write(jsonRes)
 }
 
